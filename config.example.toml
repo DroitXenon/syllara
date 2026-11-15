@@ -1,0 +1,28 @@
+# Copy to ~/.syllara/config.toml and edit.
+
+[scientia]
+# Landing page of your school's Scientia portal (after SSO).
+base_url = "https://scientia.example.edu"
+# Course codes/names to watch. Empty = all courses found.
+courses = []
+
+[scraper]
+# Run `syllara discover` after `syllara login` and tune these until `syllara list` looks right.
+# courses_url = "https://scientia.example.edu/dashboard"   # defaults to base_url
+# course_pattern = '/(course|courses|subject|unit)/[^/?#]+/?(\?|$)'   # regex on course link hrefs
+# file_pattern = '\.(pdf|pptx?|docx?|xlsx?|zip)(\?|$)|/(download|file|resource)s?/'   # regex on file hrefs
+# course_subpaths = ["resources"]   # extra pages under each course URL to scan
+
+[storage]
+download_root = "~/Scientia"
+
+[email]
+enabled = true
+to = "you@example.com"
+from = "you@gmail.com"
+smtp_host = "smtp.gmail.com"
+smtp_port = 465
+# Password is read from macOS Keychain:
+#   security add-generic-password -s syllara-smtp -a you@gmail.com -w
+keychain_service = "syllara-smtp"
+send_when_empty = false
