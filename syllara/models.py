@@ -25,3 +25,4 @@ class Downloaded:
     sha256: str
     size: int
     updated: bool  # True if this replaces an earlier version of the same file
+    summary: str | None = None

@@ -71,12 +71,12 @@ def interactive_login(base_url: str) -> bool:
         return True
 
 
-def fetch_bytes(ctx: BrowserContext, url: str) -> bytes:
-    """Download a file using the logged-in session's cookies."""
+def fetch(ctx: BrowserContext, url: str) -> tuple[bytes, dict[str, str]]:
+    """Download a file using the logged-in session's cookies. Returns (body, headers)."""
     resp = ctx.request.get(url, timeout=120_000)
     if not resp.ok:
         raise RuntimeError(f"GET {url} -> HTTP {resp.status}")
     # Files may be served from a CDN on another host, so only treat known IdP/login URLs as expiry.
     if _LOGIN_HINT.search(resp.url):
         raise SessionExpired(resp.url)
-    return resp.body()
+    return resp.body(), resp.headers

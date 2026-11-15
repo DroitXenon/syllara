@@ -25,7 +25,8 @@ def _load(page: Page, url: str, base_url: str) -> str:
 def list_courses(ctx: BrowserContext, conf: Config) -> dict[str, str]:
     page = open_portal(ctx, conf.base_url)
     sc = conf.scraper
-    html = page.content() if sc.courses_url == conf.base_url else _load(page, sc.courses_url, conf.base_url)
+    on_portal = sc.courses_url in ("", conf.base_url)
+    html = page.content() if on_portal else _load(page, sc.courses_url, conf.base_url)
     return find_courses(html, page.url, sc.course_pattern, conf.courses or None)
 
 
