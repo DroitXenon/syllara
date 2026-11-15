@@ -1,0 +1,19 @@
+[project]
+name = "syllara"
+version = "0.1.0"
+description = "Daily watcher that downloads new Scientia course files and emails a digest"
+requires-python = ">=3.12"
+dependencies = ["playwright>=1.48"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+syllara = "syllara.cli:main"
+
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["syllara"]

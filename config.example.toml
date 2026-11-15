@@ -1,0 +1,21 @@
+# Copy to ~/.syllara/config.toml and edit.
+
+[scientia]
+# Landing page of your school's Scientia portal (after SSO).
+base_url = "https://scientia.example.edu"
+# Course codes/names to watch. Empty = all courses found.
+courses = []
+
+[storage]
+download_root = "~/Scientia"
+
+[email]
+enabled = true
+to = "you@example.com"
+from = "you@gmail.com"
+smtp_host = "smtp.gmail.com"
+smtp_port = 465
+# Password is read from macOS Keychain:
+#   security add-generic-password -s syllara-smtp -a you@gmail.com -w
+keychain_service = "syllara-smtp"
+send_when_empty = false
