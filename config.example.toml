@@ -6,6 +6,13 @@ base_url = "https://scientia.example.edu"
 # Course codes/names to watch. Empty = all courses found.
 courses = []
 
+[scraper]
+# Run `syllara discover` after `syllara login` and tune these until `syllara list` looks right.
+# courses_url = "https://scientia.example.edu/dashboard"   # defaults to base_url
+# course_pattern = '/(course|courses|subject|unit)/[^/?#]+/?(\?|$)'   # regex on course link hrefs
+# file_pattern = '\.(pdf|pptx?|docx?|xlsx?|zip)(\?|$)|/(download|file|resource)s?/'   # regex on file hrefs
+# course_subpaths = ["resources"]   # extra pages under each course URL to scan
+
 [storage]
 download_root = "~/Scientia"
 
